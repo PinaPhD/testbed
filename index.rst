@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Towards autonomous software-defined IIoT-Edge networks in offshore wind farms
-=====================
+=============================================================================
 
 Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
