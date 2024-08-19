@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-PinaPhD documentation
+Towards autonomous software-defined IIoT-Edge networks in offshore wind farms
 =====================
 
 Add your content using ``reStructuredText`` syntax. See the
