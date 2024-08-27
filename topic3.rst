@@ -1,5 +1,5 @@
-Item 1
-=========
+Publish/Subscribe Model
+=======================
 
 This is the content for Item 1
 

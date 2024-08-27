@@ -1,5 +1,5 @@
-Item 1
-=========
+Industrial IoT and Edge Computing
+=================================
 
 This is the content for Item 1
 
