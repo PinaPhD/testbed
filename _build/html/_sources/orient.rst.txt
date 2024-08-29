@@ -5,11 +5,3 @@ This is the content for Item 1
 
 More details can go here ...
 
-..toctree::
-  :maxdepth:2
-
-  topic61
-  topic62
-  topic63
-  topic64
-  topic65

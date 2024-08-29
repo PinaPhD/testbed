@@ -5,11 +5,11 @@ This is the content for Item 1
 
 More details can go here ...
 
-..toctree::
-  :maxdepth:2
+.. toctree::
+   :maxdepth: 2
+   
+   observe
+   orient
+   decide
+   act
 
-  topic61
-  topic62
-  topic63
-  topic64
-  topic65
