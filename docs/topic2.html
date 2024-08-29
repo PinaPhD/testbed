@@ -91,7 +91,7 @@ It reduces latency and bandwidth usage while ensuring that critical decisions ca
 
 <p>
 The IEC61400-25 wind turbine and metmast sensors collect highly granular analog measurements at a 50Hz sampling rate and send them to a local data acquisition module within the wind turbine, as illustrated in the Figure above. 
-This local data acquisition module pre-processes these data and facilitates actuation through the local control ensemble in the wind turbine. 
+This local data acquisition module pre-processes these data and facilitates actuation through the local control ensemble in the wind turbine <cite><a href="https://ieeexplore.ieee.org/document/10202987">[2]</a></cite>. 
 Further, it sends the sensor data through short-range ethernet-based fiber optic patch cords to the nacelle switch. 
 The nacelle switch communicates with the tower switch, sending the data as ethernet frames to the offshore substation's switch network through the multiplexed subsea fiber optic cable. 
 The offshore substation's switch network then relays the data to the ECP node’s MQTT broker. 
