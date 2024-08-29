@@ -12,7 +12,7 @@ documentation for details.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :caption: Contents:
 
 
@@ -21,11 +21,7 @@ documentation for details.
    topic3
    topic4
    topic5
-   topic6/topic61
-   topic6/topic62
-   topic6/topic63
-   topic6/topic64
-   topic6/topic65
+   topic6/index
    topic7
 
 	
