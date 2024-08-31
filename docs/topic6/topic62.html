@@ -83,7 +83,21 @@
              
   <section id="topic-6">
 <h1>VM POC Testbed Design<a class="headerlink" href="#topic-6" title="Link to this heading">¶</a></h1>
-<p>VM POC Testbed Design</p>
+
+<h4>Setting up Ms-Azure Resource Group Proof-of-Concept Testbed</h4>
+
+<p>Virtual machine (VM) setup on the Ms-Azure Resource Group:
+<code>bash
+sudo apt-get update &amp;&amp; sudo apt-get upgrade
+sudo apt install ubuntu-desktop -y
+sudo apt-get -y install xrdp
+sudo systemctl enable xrdp
+sudo adduser xrdp ssl-cert
+echo gnome-session &gt; ~/.xsession
+sudo service xrdp restart
+sudo ufw allow 3389/tcp
+sudo passwd amwangi254
+</code></p>
 </section>
 
 

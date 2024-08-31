@@ -83,7 +83,76 @@
              
   <section id="topic-6">
 <h1>Control Plane<a class="headerlink" href="#topic-6" title="Link to this heading">¶</a></h1>
-<p>Update control plane details here...</p> 
+
+
+<h4>Setting up the ONOS SDN Controller Cluster:</h4>
+
+<p><code>bash
+sudo apt-get -y update &amp;&amp; sudo apt-get -y upgrade
+sudo apt install git wget vim
+sudo apt -y install openjdk-8-jdk
+</code></p>
+
+<p>Append environment variable JAVA_HOME to ~/.bashrc 
+<code>bash
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
+</code></p>
+
+<p>Run this: <code>source ~/.bashrc</code></p>
+
+<p>Installing ONOS Ver2.0.0 (<em>Loon</em>)</p>
+
+<p>Download the onos binary file:  <code>sudo wget -c https://repo1.maven.org/maven2/org/onosproject/onos-releases/2.0.0/onos-2.0.0.tar.gz</code></p>
+
+<p><code>bash
+tar zxvf onos-2.0.0.tar.gz
+sudo mkdir /opt/onos 
+sudo cp -r onos-2.0.0/* /opt/onos
+</code></p>
+
+<p>Run onos services 
+<code>bash
+cd /opt/onos/bin
+sudo /opt/onos/bin/onos-service start
+</code></p>
+
+<p>Open another terminal and add configuration to ~/.ssh/config
+<code>bash
+mkdir ~/.ssh
+touch ~/.ssh/config
+vim ~/.ssh/config
+</code></p>
+
+<p>Paste this in the <code>~/.ssh/config</code> file
+<code>bash
+HostKeyAlgorithms +ssh-rsa
+PubkeyAcceptedKeyTypes +ssh-rsa
+</code></p>
+
+<p>Connect to onos cli and activate application
+<code>bash
+cd /opt/onos/bin
+/opt/onos/bin/onos -l onos
+password: rocks
+</code></p>
+
+<p>On the ONOS SDN Controller CLI activate the following applications:
+<code>bash
+onos@root$ app activate org.onosproject.pipelines.basic
+onos@root$ app activate org.onosproject.fwd
+onos@root$ app activate org.onosproject.openflow
+</code></p>
+
+<p>Login GUI
+Open browser and type <code>http:&lt;localhost&gt;:8181/onos/ui</code></p>
+
+<p>username/password: onos/rocks</p>
+
+<h4>Implementing the Deep Q-Network self-healing agent in the knowledge plane</h4>
+
 </section>
 
 
