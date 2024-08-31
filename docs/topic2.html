@@ -82,7 +82,7 @@ These IIoT devices prevent extended downtime, and reduce O&M costs through the e
 
 <p> While contemporary IIoT platforms use the IIoT-cloud model, this model faces technical, operational, and regulatory challenges such as data transmission latency, bandwidth
 constraints, and reliability/connectivity issues considering that the model depends on the quality of service of Internet Service Provider (ISP) facilities. Subsequently, adopting edge computing to process this big data closer to the offshore wind farms is a favorable option. 
-It reduces latency and bandwidth usage while ensuring that critical decisions can be made locally in real-time, even in the event of connectivity issues in the central systems <cite><a href="https://www.mdpi.com/1996-1073/17/12/2897">[1]</a></cite>. </p>
+It reduces latency and bandwidth usage while ensuring that critical decisions can be made locally in real-time, even in the event of connectivity issues in the central systems <cite><a href="https://www.mdpi.com/1996-1073/17/12/2897" target="_blank">[1]</a></cite>. </p>
 
 <figure style="text-align: center;">
     <img src="_static/Images/IIoT-Edge.png" alt="IIoT-Edge architecture">
@@ -91,7 +91,7 @@ It reduces latency and bandwidth usage while ensuring that critical decisions ca
 
 <p>
 The IEC61400-25 wind turbine and metmast sensors collect highly granular analog measurements at a 50Hz sampling rate and send them to a local data acquisition module within the wind turbine, as illustrated in the Figure above. 
-This local data acquisition module pre-processes these data and facilitates actuation through the local control ensemble in the wind turbine <cite><a href="https://ieeexplore.ieee.org/document/10202987">[2]</a></cite>. 
+This local data acquisition module pre-processes these data and facilitates actuation through the local control ensemble in the wind turbine <cite><a href="https://ieeexplore.ieee.org/document/10202987" target="_blank">[2]</a></cite>. 
 Further, it sends the sensor data through short-range ethernet-based fiber optic patch cords to the nacelle switch. 
 The nacelle switch communicates with the tower switch, sending the data as ethernet frames to the offshore substation's switch network through the multiplexed subsea fiber optic cable. 
 The offshore substation's switch network then relays the data to the ECP node’s MQTT broker. 
@@ -106,13 +106,13 @@ Additionally, the cloud instance applications and the O&M team (enterprise netwo
 Current and voltage sensors are mounted on critical electrical components in the wind turbine to collect analog current and voltage measurements at a 20 kHz sampling rate. 
 As illustrated in the Figure above, these current and voltage sensors are connected to differential voltage probes and current clamps. 
 The differential voltage probe and the current clamp send the analog current and voltage measurements to merging units (MU) using short-range ethernet-based fiber optic cables. 
-The MU digitizes these analog current and voltage measurements into IEC 61850-9-2 Sampled Values (SVs) — see <cite><a href=" https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/iec_61850_sampled_values_protocol.html">IEC61850 SV protocol</a></cite> — and then publishes them on the process bus network. 
+The MU digitizes these analog current and voltage measurements into IEC 61850-9-2 Sampled Values (SVs) — see <cite><a href=" https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/iec_61850_sampled_values_protocol.html" target="_blank">IEC61850 SV protocol</a></cite> — and then publishes them on the process bus network. 
 At the vPAC node, virtual intelligent electronic device (vIED) docker-based containers, designed using relay technology, are configured and deployed in the docker engine. 
 The Kalkitech’s virtual protection relay (VPR) reference system affirms that using vIEDs in a dockerized environment meets and exceeds the vIED to vIED performance and time requirements. 
 Additionally, the environment facilitates redundancy, resiliency through container migration, and ease of deployment. 
 These vIEDs subscribe to the SVs and process the data. 
 The vIEDs send the processed SVs to the disturbance recorder (a containerized or VM instance) to determine the power quality by detecting transients or short-duration voltage variations in the electrical network under observation. 
-Additionally, these vIEDs exchange IEC 61850 Generic Object-Oriented Substation Events (GOOSE) messages — see <cite><a href=" https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/iec_61850_goose_protocol.html">IEC61850 GOOSE protocol</a></cite>  — with each other through a virtual switch and with external process-level equipment such as circuit breakers through the process bus network. 
+Additionally, these vIEDs exchange IEC 61850 Generic Object-Oriented Substation Events (GOOSE) messages — see <cite><a href=" https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/iec_61850_goose_protocol.html" target="_blank">IEC61850 GOOSE protocol</a></cite>  — with each other through a virtual switch and with external process-level equipment such as circuit breakers through the process bus network. 
 Lastly, these vIEDs communicate with other station-level equipment by sending IEC 61850 Manufacturing Message Specification (MMS) signals to the historian database in the enterprise network or other energy management systems in the cloud control center.
 </p>
 
