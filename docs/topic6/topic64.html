@@ -86,72 +86,80 @@
 
 
 <h4>Setting up the ONOS SDN Controller Cluster:</h4>
-
-<p><code>bash
+<pre><code>
 sudo apt-get -y update &amp;&amp; sudo apt-get -y upgrade
+</code> </pre>
+<pre><code>
 sudo apt install git wget vim
+</code> </pre>
+<pre><code>
 sudo apt -y install openjdk-8-jdk
-</code></p>
+</code> </pre>
 
 <p>Append environment variable JAVA_HOME to ~/.bashrc 
-<code>bash
+<pre><code>
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+</code> </pre>
+<pre><code>
 export JRE_HOME=$JAVA_HOME/jre
+</code> </pre>
+<pre><code>
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
+</code> </pre>
+<pre><code>
 export PATH=$JAVA_HOME/bin:$PATH
-</code></p>
+</code> </pre>
 
 <p>Run this: <code>source ~/.bashrc</code></p>
-
 <p>Installing ONOS Ver2.0.0 (<em>Loon</em>)</p>
-
-<p>Download the onos binary file:  <code>sudo wget -c https://repo1.maven.org/maven2/org/onosproject/onos-releases/2.0.0/onos-2.0.0.tar.gz</code></p>
-
-<p><code>bash
+<p>Download the onos binary file:  <code>sudo wget -c https://repo1.maven.org/maven2/org/onosproject/onos-releases/2.0.0/onos-2.0.0.tar.gz</code>
+</p>
+<pre><code>
 tar zxvf onos-2.0.0.tar.gz
+</code> </pre>
+<pre><code>
 sudo mkdir /opt/onos 
+</code> </pre>
+<pre><code>
 sudo cp -r onos-2.0.0/* /opt/onos
-</code></p>
-
-<p>Run onos services 
-<code>bash
+</code> </pre>
+<p>Run onos services </p>
+<pre><code>
 cd /opt/onos/bin
+</code> </pre>
+<pre><code>
 sudo /opt/onos/bin/onos-service start
-</code></p>
-
-<p>Open another terminal and add configuration to ~/.ssh/config
-<code>bash
+</code> </pre>
+<p>Open another terminal and add configuration to ~/.ssh/config </p>
+<pre><code>
 mkdir ~/.ssh
+</code> </pre>
+<pre><code>
 touch ~/.ssh/config
+</code> </pre>
+<pre><code>
 vim ~/.ssh/config
-</code></p>
-
-<p>Paste this in the <code>~/.ssh/config</code> file
-<code>bash
-HostKeyAlgorithms +ssh-rsa
+</code> </pre>
+<p>Paste this in the <code>~/.ssh/config</code>  using a Vim Editor or Nano Editor </p>
+<pre><code>
+HostKeyAlgorithms +ssh-rsa <br/>
 PubkeyAcceptedKeyTypes +ssh-rsa
-</code></p>
-
-<p>Connect to onos cli and activate application
-<code>bash
-cd /opt/onos/bin
-/opt/onos/bin/onos -l onos
-password: rocks
-</code></p>
-
-<p>On the ONOS SDN Controller CLI activate the following applications:
-<code>bash
-onos@root$ app activate org.onosproject.pipelines.basic
-onos@root$ app activate org.onosproject.fwd
-onos@root$ app activate org.onosproject.openflow
-</code></p>
-
+</code> </pre>
+<p>Connect to onos cli and activate application:</p>
+<pre><code>
+cd /opt/onos/bin <br/>
+/opt/onos/bin/onos -l onos <br/>
+password: rocks <br/>
+</code></pre>
+<p>On the ONOS SDN Controller CLI activate the following applications:</p>
+<pre><code>
+onos@root$ app activate org.onosproject.pipelines.basic <br/>
+onos@root$ app activate org.onosproject.fwd <br/>
+onos@root$ app activate org.onosproject.openflow  <br/>
+</code></pre>
 <p>Login GUI
 Open browser and type <code>http:&lt;localhost&gt;:8181/onos/ui</code></p>
-
 <p>username/password: onos/rocks</p>
-
-<h4>Implementing the Deep Q-Network self-healing agent in the knowledge plane</h4>
 
 </section>
 
