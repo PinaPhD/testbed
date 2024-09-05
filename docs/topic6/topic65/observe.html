@@ -90,7 +90,9 @@
              
   <section id="topic-65">
 <h1>Observe Module<a class="headerlink" href="#topic-65" title="Observe Module">¶</a></h1>
-<p> Observe module</p>
+<p>The <strong>Observe</strong> module plays a critical role in interacting with the Open Network Operating System (ONOS) SDN controller to facilitate real-time network monitoring and issue detection. The Observe module collects data on network performance, traffic patterns, and potential failures by tapping into ONOS's telemetry and monitoring features. ONOS, as an SDN controller, has a global view of the network topology, allowing it to track the state of switches, routers, and links in the offshore wind farm cluster.</p>
+
+<p>Through APIs or telemetry protocols, the Observe module continuously gathers data from ONOS, such as network latency, packet loss, or link failures. This data is analyzed to identify anomalies or performance degradation. When the module detects an issue, it triggers the next phase in the control loop. By providing a near real-time understanding of the network's status, the Observe module enables proactive self-healing actions, such as rerouting traffic or reallocating resources.</p>
 
 <figure style="text-align: center;">
     <img src="https://pinaphd.github.io/testbed/_static/Images/Observe.png" alt="observe module">
