@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VM POC Testbed Design &mdash; Proof-of-Concept Design</title>
+  <title>Virtual Machine Setup</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -74,7 +74,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">VM POC Testbed Design</li>
+      <li class="breadcrumb-item active">Virtual Machine Setup</li>
   </ul>
   <hr/>
 </div>
@@ -82,22 +82,60 @@
            <div itemprop="articleBody">
              
   <section id="topic-6">
-<h1>VM POC Testbed Design<a class="headerlink" href="#topic-6" title="Link to this heading">¶</a></h1>
+<h1>Virtual Machine Setup <a class="headerlink" href="#topic-6" title="Link to this heading">¶</a></h1>
 
+<p> The table below highlights the virtual machine (VM) setup in the MS Azure Resource Group with compute and storage resources. </p> 
+<table border="2">
+  <caption>a triple wpp cluster ms-azure proof-of-concept testbed</caption>
+  <thead>
+    <tr>
+      <th>OT Networks</th>
+      <th>VM Scalesets</th>
+      <th>Specifications (Operating System, CPU, RAM, SSD, APPS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>WF1_OSS1</td>
+      <td>
+        <p>VM-AS1-DP1 (1)</p>
+        <p>VM-AS1-SDNC1 (3)</p>
+      </td>
+      <td rowspan="3">
+        Linux (Ubuntu Server 22.04 lts-Gen2) x64<br>
+        Standard E2ds v4, 2vCPUs, 16GiB RAM<br>
+        P20 (Premium SSD LRS 512GiB, 2300 max IOPS, 150Mbps max throughput, SSE with PMK encryption)<br>
+        Docker Ver.24.0.7 & Mininet Ver.2.3.0
+      </td>
+    </tr>
+    <tr>
+      <td>WF2_OSS2</td>
+      <td>
+        <p>VM-AS2-DP2 (1)</p>
+        <p>VM-AS2-SDNC2 (3)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>WF3_OSS3</td>
+      <td>
+        <p>VM-AS3-DP3 (1)</p>
+        <p>VM-AS3-SDNC3 (3)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Knowledge_Plane</td>
+      <td>VM-KP (1)</td>
+      <td>
+        Microsoft Server 2022 Datacenter-Azure-Edition<br>
+        (InfluxdB Ver 0.10.3, TensorFlow Ver.2.16.2, Python Ver.3.12.3)<br>
+        Standard-D8lds-V5 (8 vCPU, 16GiB RAM, P20)
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-
-<p>Virtual machine (VM) setup on the Ms-Azure Resource Group:
-<code>bash
-sudo apt-get update &amp;&amp; sudo apt-get upgrade
-sudo apt install ubuntu-desktop -y
-sudo apt-get -y install xrdp
-sudo systemctl enable xrdp
-sudo adduser xrdp ssl-cert
-echo gnome-session &gt; ~/.xsession
-sudo service xrdp restart
-sudo ufw allow 3389/tcp
-sudo passwd amwangi254
-</code></p>
+</hr/>
+<p>On each of these VMs, an Ubuntu Desktop environment was configured using this <a href="https://github.com/PinaPhD/InnoCyPES_Summer_School_LECCE/blob/main/VM.md" target="_blank">script</a>.</p>
 </section>
 
 
