@@ -83,9 +83,20 @@
              
   <section id="topic-6">
 <h1>MS Azure Resource Group Design<a class="headerlink" href="#topic-6" title="Link to this heading">¶</a></h1>
-<p>Microsoft Azure (Ms Azure) resource group is ...</p>
+<p>Microsoft Azure (Ms Azure) resource group is a container that holds related Azure resources, like virtual machines, storage, or databases, allowing you to manage them as a unit based on their lifecycle, permissions, and policies.</p>
 <hr/>
 <h5>Setting up Ms-Azure Resource Group Proof-of-Concept Testbed</h5>
+<ol>
+  <li>Create a resource group on the Microsoft subscription (<em>Connected to your MS Account</em>).</li>
+  <li>Create a virtual network and subnets.</li>
+  <li>Protect a subnet using a network security group created inside the resource group.</li>
+  <li>Assign the open, inbound, and outbound rules associated with the network security group.</li>
+  <li>Deploy Bastion to connect the virtual machines from a remote tool such as (RDP or Mobaxtetrm).</li>
+  <li>For Bastion, link it to one of the already created subnets and assign it a public IP address.</li>
+  <li>Create an Ubuntu Server virtual machine in the resource group and assign a subnet and public IP address.</li>
+  <li>In the NSG, create rules that forward the Linux Virtual Machines to their associated ports for remote access.</li>
+</ol>
+
 
 <figure style="text-align: center;">
     <img src="../_static/Images/rg.png" alt="resource group">
