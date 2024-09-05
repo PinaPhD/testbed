@@ -84,28 +84,20 @@
   <section id="topic-6">
 <h1>Data Plane<a class="headerlink" href="#topic-6" title="Link to this heading">¶</a></h1>
 
+<p>In Software Defined Networking (SDN), the <em>Data Plane</em> (also known as the <em>forwarding plane</em>) 
+is responsible for the actual movement of data packets through the network. 
+It handles tasks like packet forwarding, filtering, and inspection, ensuring that data flows between devices 
+based on predefined rules set by the <em>control plane</em>.
+The data plane operates on network devices like switches and routers, and it executes the policies and rules 
+defined by the control plane without making its own decisions. 
+In SDN, the control plane is decoupled from the data plane, meaning the control plane manages and instructs the 
+data plane on how to handle traffic, but the data plane performs the real-time operations of forwarding and processing the packets.</p>
 
-<h4>Installing Mininet on the Ubuntu Desktop (GUI) version:</h4>
-
-<p><code>bash
-sudo apt install git python3-pip -y
-git clone https://github.com/mininet/mininet
-cd mininet
-sudo ./util/install.sh -a
-</code></p>
-
-<p>Running the offshore WPP Network Topology <a href="https://github.com/PinaPhD/JP3/blob/main/DataPlane/dataplane.py">AS1 Network Topology</a></p>
-
-<p>In the Mininet CLI prompt, using xterm instantiate the data transfers between all the communicating nodes (IIoT sensors, Merging Units, vIEDs, ECP units, and actuators)
-<code>bash
-xterm &lt;host_name&gt; &lt;host_name&gt; &lt;host_name&gt; ...
-</code></p>
-
-<p>Running Wireshark:</p>
-
-<p><code>bash
-sudo -E wireshark
-</code></p>
+<h5>Setting up the Data Plane</h5>
+<ol>
+  <li>Log on to the VM that is created to host the data plane (e.g. AS1_DP)</li>
+  <li>Set up mininet and network monitoring tools (such as Wireshark, tcpdump, npcap) using this <a href="https://github.com/PinaPhD/InnoCyPES_Summer_School_LECCE/blob/main/DataPlane.md" target="_blank"> script </a></li>
+</ol>
 </section>
 
 
