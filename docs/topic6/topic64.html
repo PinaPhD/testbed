@@ -84,64 +84,24 @@
   <section id="topic-6">
 <h1>Control Plane<a class="headerlink" href="#topic-6" title="Link to this heading">¶</a></h1>
 
-<h4>ONOS SDN Controller Cluster (n=3)</h4>
+<p>In Software Defined Networking (SDN), the <strong>control plane</strong> is responsible for managing and making decisions about how traffic should be handled within the network. It acts as the "brain" of the network by setting the rules and policies for routing and switching data packets.</p>
 
-<h4>Setting up the ONOS SDN Controller Cluster:</h4>
-<pre><code>
-sudo apt-get -y update &amp;&amp; sudo apt-get -y upgrade  <br/>
-sudo apt install git wget vim  <br/>
-sudo apt -y install openjdk-8-jdk  
-</code> </pre>
+<p>The control plane operates separately from the <strong>data plane</strong> (which forwards the actual data). This separation allows for centralized control, where a single SDN controller can dynamically adjust and optimize the flow of traffic across the network, without relying on traditional device-specific control mechanisms like those in legacy networks.</p>
 
-<p>Append environment variable JAVA_HOME to ~/.bashrc 
-<pre><code>
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 <br/>
-export JRE_HOME=$JAVA_HOME/jre <br/>
-export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib  <br/>
-export PATH=$JAVA_HOME/bin:$PATH  
-</code> </pre>
+<p>Key responsibilities of the control plane in SDN include:</p>
+<ul>
+  <li><strong>Routing decisions</strong>: Determining the best paths for data to travel across the network.</li>
+  <li><strong>Network topology management</strong>: Keeping track of the network's structure and state.</li>
+  <li><strong>Policy enforcement</strong>: Applying network policies, such as access control or quality of service (QoS).</li>
+  <li><strong>Communication with the data plane</strong>: Sending instructions to the data plane on how to handle and forward packets.</li>
+</ul>
 
-<p>Run this: <code>source ~/.bashrc</code></p>
-<p>Installing ONOS Ver2.0.0 (<em>Loon</em>)</p>
-<p>Download the onos binary file:  <code>sudo wget -c https://repo1.maven.org/maven2/org/onosproject/onos-releases/2.0.0/onos-2.0.0.tar.gz</code>
-</p>
-<pre><code>
-tar zxvf onos-2.0.0.tar.gz  <br/>
-sudo mkdir /opt/onos  <br/>
-sudo cp -r onos-2.0.0/* /opt/onos 
-</code> </pre>
-<p>Run onos services </p>
-<pre><code>
-cd /opt/onos/bin  <br/>
-sudo /opt/onos/bin/onos-service start
-</code> </pre>
-<p>Open another terminal and add configuration to ~/.ssh/config </p>
-<pre><code>
-mkdir ~/.ssh  <br/>
-touch ~/.ssh/config  <br/>
-vim ~/.ssh/config
-</code> </pre>
-<p>Paste this in the <code>~/.ssh/config</code>  using a Vim Editor or Nano Editor </p>
-<pre><code>
-HostKeyAlgorithms +ssh-rsa <br/>
-PubkeyAcceptedKeyTypes +ssh-rsa
-</code> </pre>
-<p>Connect to onos cli and activate application:</p>
-<pre><code>
-cd /opt/onos/bin <br/>
-/opt/onos/bin/onos -l onos <br/>
-password: rocks
-</code></pre>
-<p>On the ONOS SDN Controller CLI activate the following applications:</p>
-<pre><code>
-onos@root$ app activate org.onosproject.pipelines.basic <br/>
-onos@root$ app activate org.onosproject.fwd <br/>
-onos@root$ app activate org.onosproject.openflow  
-</code></pre>
-<p>Login GUI
-Open browser and type <code>http:&lt;localhost&gt;:8181/onos/ui</code><br/>
-username/password: onos/rocks</p>
+<p>This centralized and programmable control model is a core feature of SDN, making networks more flexible, scalable, and easier to manage.</p>
 
+
+<h5>Setting up the control plane using ONOS SDN controllers</h5>
+
+https://github.com/PinaPhD/InnoCyPES_Summer_School_LECCE/blob/main/ControlPlane.md
 </section>
 
 
