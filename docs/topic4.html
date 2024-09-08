@@ -80,6 +80,10 @@
   <section id="sdn-nfv-communication-networks">
 <h1>SDN/NFV communication networks<a class="headerlink" href="#sdn-nfv-communication-networks" title="Link to this heading">¶</a></h1>
 <p>In offshore wind farms, reliable and efficient network communication infrastructure is critical to ensure seamless operations and monitoring of various components such as Wind Turbine Generators (WTGs), substations, and grid integration. Leveraging Software-Defined Networking (SDN) and Network Function Virtualization (NFV) within the architecture provides flexibility, scalability, and efficiency in managing complex network environments like those in offshore wind farms.</p>
+<figure style="text-align: center;">
+    <img src="_static/Images/network.png" alt="network">
+    <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">A hybrid-band control (HBC) software-defined Operational Technology (OT) network using OpenFlow for an offshore WPP with an offshore digital substation (OSS) rearchitectured as a data center.</figcaption>
+</figure>
 <p>SDN and NFV technologies decouple network control and data planes, enabling centralized management and the virtualization of network functions. In an offshore wind farm context, SDN can centralize the control and management of the network, while NFV virtualizes the traditionally hardware-based network functions (such as firewalls, load balancers, and routers) on a server cluster, improving efficiency and reducing operational costs.</p>
 <p>The <strong>spine-leaf topology</strong> is well-suited for offshore substations due to its high-performance, low-latency, and scalable nature. The <strong>leaf switches</strong> connect to devices, sensors, and servers, while the <strong>spine switches</strong> ensure that all leaf switches are interconnected, providing multiple paths for data and reducing bottlenecks. This topology is ideal for handling high data traffic from various sources, such as WTGs, sensors, and control systems, particularly in high-bandwidth applications like edge computing and virtualized automation nodes.</p>
 
@@ -98,9 +102,10 @@
         <li><strong>Low-latency data processing</strong>: Edge computing nodes process data locally, improving response times and reducing the amount of data that must be sent to centralized data centers for processing.</li>
         <li><strong>Resilience and flexibility</strong>: Virtualized PAC nodes can be dynamically reallocated based on network conditions, making the system more resilient to failures.</li>
     </ul>
+
 <figure style="text-align: center;">
-    <img src="_static/Images/network.png" alt="network">
-    <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">A hybrid-band control (HBC) software-defined Operational Technology (OT) network using OpenFlow for an offshore WPP with an offshore digital substation (OSS) rearchitectured as a data center.</figcaption>
+    <img src="_static/Images/servercluster.png" alt="server cluster">
+    <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">The OSS Server cluster hosts the edge computing platform (ECP) nodes and IEC61850 virtualized protection, automation, and control (vPAC) nodes.</figcaption>
 </figure>
 
  <p>Edge computing plays a vital role in offshore wind farms by bringing computational resources closer to the data sources (WTGs and sensors). The server cluster in the offshore substation hosts <strong>edge computing platform nodes</strong>, which handle local data processing and analytics tasks, reducing latency and dependence on centralized data centers. This allows real-time data processing and decision-making, crucial for operational efficiency, predictive maintenance, and system optimization.</p>
@@ -122,10 +127,7 @@
 
     <p>By virtualizing these functions, the offshore substation can scale the network protection and control systems according to real-time needs and traffic conditions, which is particularly beneficial in large, growing wind farms.</p>
 
-<figure style="text-align: center;">
-    <img src="_static/Images/servercluster.png" alt="server cluster">
-    <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">The OSS Server cluster hosts the edge computing platform (ECP) nodes and IEC61850 virtualized protection, automation, and control (vPAC) nodes.</figcaption>
-</figure>
+
 
 <p>The combination of SDN, NFV, edge computing, and virtual PAC nodes in an offshore wind farm with a spine-leaf network topology enhances the network's flexibility, scalability, and efficiency. SDN's centralized control enables efficient management of both traditional WTG networks and advanced virtualized systems hosted in the offshore substation. This architecture supports the growing complexity and scale of offshore wind farms, ensuring reliable, real-time performance and improved operational efficiency.</p>
 
