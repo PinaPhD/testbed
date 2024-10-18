@@ -80,6 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+           <li class="breadcrumb-item active">Decide Module</li>
   </ul>
   <hr/>
 </div>
@@ -91,18 +92,19 @@
 
 <p>This graphical abstract represents an intelligent network management system using a reinforcement learning-based approach for dynamic network control. The framework integrates ONOS (Open Network Operating System) with a DQN (Deep Q-Network) agent for optimizing traffic management based on observed network conditions.</p>
 <p>The system begins by retrieving network state data from the ONOS controller through its REST API. This network data is represented by the traffic matrix <em>TM<sub>t</sub></em>, which consists of link utilization <em>u<sub>i,t</sub></em> and latency <em>l<sub>i,t</sub></em> values between different network devices. Latency measurements are critical for understanding traffic delays between specific source and destination pairs. The matrix captures both current link utilization and latency for each time step <em>t</em>, providing a real-time snapshot of network performance.</p>
+<p>Once the network traffic state is captured, the next step involves feeding this data into a DQN model. The DQN agent processes the network state as an input and outputs an action <em>a<sub>t</sub></em>, which consists of a set of potential actions, including path re-routing policies and traffic throttling strategies based on service type.</p>
+<p>From the decision-making loop, where the DQN evaluates the current network state and decides whether or not to take corrective actions. These actions could include rerouting traffic to mitigate congestion, balancing loads across network links, or throttling low-priority traffic. The process is iterative, meaning the agent continually observes, evaluates, and updates its decisions based on new network data.</p>
 
 <figure style="text-align: center;">
     <img src="https://pinaphd.github.io/testbed/_static/Images/abstract.png" alt="decide module">
     <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">Graphical abstract of a reinforcement learning-based network management system integrating ONOS and a DQN agent to optimize traffic based on real-time utilization and latency.</figcaption>
 </figure>
 
-<p>Once the network traffic state is captured, the next step involves feeding this data into a DQN model. The DQN agent processes the network state as an input and outputs an action <em>a<sub>t</sub></em>, which consists of a set of potential actions, including path re-routing policies and traffic throttling strategies based on service type.</p>
-<p>In the graphical abstract, we can see the decision-making loop, where the DQN evaluates the current network state and decides whether or not to take corrective actions. These actions could include rerouting traffic to mitigate congestion, balancing loads across network links, or throttling low-priority traffic. The process is iterative, meaning the agent continually observes, evaluates, and updates its decisions based on new network data.</p>
 <p>The learning process for the DQN agent is guided by a reward function <em>R(s<sub>t</sub>, a<sub>t</sub>)</em>, which is illustrated in the bottom right of the diagram. This reward function is designed to incentivize actions that optimize network performance by minimizing latency and maximizing utilization. The reward is computed using a weighted sum of latency <em>l<sub>j,t</sub></em> and utilization <em>u<sub>i,t</sub></em>, with tunable parameters <em>&alpha;</em> and <em>&beta;</em> representing the importance of each metric. The goal is to adjust network operations to meet predefined system intents, which are captured as normalized thresholds for various performance metrics.</p>
 <p>Once an action is taken by the system, the network state is continuously monitored to evaluate its impact. If the action taken by the DQN does not result in the desired performance improvements, the system can readjust by selecting a different action in the next iteration. This closed-loop process ensures the network adapts dynamically to changing conditions, whether due to traffic fluctuations or external factors such as device failures or cyber-attacks.</p>
-<p>This graphical abstract provides a high-level overview of a dynamic, self-healing network management system powered by deep reinforcement learning. By integrating ONOS with a DQN agent, the system achieves real-time traffic optimization, resulting in more resilient and efficient network operations. The system's ability to learn from past states and adapt based on real-time data ensures that it can handle a wide range of network challenges, from congestion control to fault tolerance.</p>
-  
+
+ <p>The Decide module python script can be found <a href="https://github.com/PinaPhD/A-threshold-triggered-DQN-self-healing-framework/blob/main/KnowledgePlane/OODA-MySQL/Decide_MySQL.py" target="_blank">here</a></p>
+
 </section>
 
 
