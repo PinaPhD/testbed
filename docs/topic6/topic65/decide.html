@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Self-healing as a concept &mdash; PinaPhD 1.0.0 documentation</title>
+  <title>Decide Module &mdash; PinaPhD 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -19,8 +19,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Offshore Wind Data Acquisition Systems" href="observe.html" />
-    <link rel="prev" title="Offshore Wind Data Acquisition Systems" href="../topic64.html" /> 
+    <link rel="next" title="Act Module" href="act.html" />
+    <link rel="prev" title="Orient Module" href="orient.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,7 +57,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Knowledge Plane</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="observe.html">Observe Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="orient.html">Orient Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decide.html">Decide Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Decide Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="act.html">Act Module</a></li>
 </ul>
 </li>
@@ -80,8 +80,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Topic 6</a></li>
-      <li class="breadcrumb-item active">Knowledge Plane</li>
   </ul>
   <hr/>
 </div>
@@ -89,19 +87,30 @@
            <div itemprop="articleBody">
              
   <section id="topic-65">
-<h1>Knowledge Plane<a class="headerlink" href="#topic-65" title="Link to this heading">¶</a></h1>
+<h1>Decide Module<a class="headerlink" href="#topic-65" title="Link to this heading">¶</a></h1>
+
+<p>This graphical abstract represents an intelligent network management system using a reinforcement learning-based approach for dynamic network control. The framework integrates ONOS (Open Network Operating System) with a DQN (Deep Q-Network) agent for optimizing traffic management based on observed network conditions.</p>
+<p>The system begins by retrieving network state data from the ONOS controller through its REST API. This network data is represented by the traffic matrix <em>TM<sub>t</sub></em>, which consists of link utilization <em>u<sub>i,t</sub></em> and latency <em>l<sub>i,t</sub></em> values between different network devices. Latency measurements are critical for understanding traffic delays between specific source and destination pairs. The matrix captures both current link utilization and latency for each time step <em>t</em>, providing a real-time snapshot of network performance.</p>
+
 <figure style="text-align: center;">
     <img src="https://pinaphd.github.io/testbed/_static/Images/abstract.png" alt="decide module">
-    <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">The Observe Module of the self-healing framework showing interactions between the control plane, databases, visualization platforms for collecting, storing, and visualizing the control plane cluster metrics.</figcaption>
+    <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">Graphical abstract of a reinforcement learning-based network management system integrating ONOS and a DQN agent to optimize traffic based on real-time utilization and latency.</figcaption>
 </figure>
+
+<p>Once the network traffic state is captured, the next step involves feeding this data into a DQN model. The DQN agent processes the network state as an input and outputs an action <em>a<sub>t</sub></em>, which consists of a set of potential actions, including path re-routing policies and traffic throttling strategies based on service type.</p>
+<p>In the graphical abstract, we can see the decision-making loop, where the DQN evaluates the current network state and decides whether or not to take corrective actions. These actions could include rerouting traffic to mitigate congestion, balancing loads across network links, or throttling low-priority traffic. The process is iterative, meaning the agent continually observes, evaluates, and updates its decisions based on new network data.</p>
+<p>The learning process for the DQN agent is guided by a reward function <em>R(s<sub>t</sub>, a<sub>t</sub>)</em>, which is illustrated in the bottom right of the diagram. This reward function is designed to incentivize actions that optimize network performance by minimizing latency and maximizing utilization. The reward is computed using a weighted sum of latency <em>l<sub>j,t</sub></em> and utilization <em>u<sub>i,t</sub></em>, with tunable parameters <em>&alpha;</em> and <em>&beta;</em> representing the importance of each metric. The goal is to adjust network operations to meet predefined system intents, which are captured as normalized thresholds for various performance metrics.</p>
+<p>Once an action is taken by the system, the network state is continuously monitored to evaluate its impact. If the action taken by the DQN does not result in the desired performance improvements, the system can readjust by selecting a different action in the next iteration. This closed-loop process ensures the network adapts dynamically to changing conditions, whether due to traffic fluctuations or external factors such as device failures or cyber-attacks.</p>
+<p>This graphical abstract provides a high-level overview of a dynamic, self-healing network management system powered by deep reinforcement learning. By integrating ONOS with a DQN agent, the system achieves real-time traffic optimization, resulting in more resilient and efficient network operations. The system's ability to learn from past states and adapt based on real-time data ensures that it can handle a wide range of network challenges, from congestion control to fault tolerance.</p>
+  
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../topic64.html" class="btn btn-neutral float-left" title="Control Plane" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="observe.html" class="btn btn-neutral float-right" title="Observe Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="orient.html" class="btn btn-neutral float-left" title="Orient Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="act.html" class="btn btn-neutral float-right" title="Act Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
