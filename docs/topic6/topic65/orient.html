@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Self-healing as a concept &mdash; PinaPhD 1.0.0 documentation</title>
+  <title>Orient Module &mdash; PinaPhD 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -19,8 +19,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Offshore Wind Data Acquisition Systems" href="observe.html" />
-    <link rel="prev" title="Offshore Wind Data Acquisition Systems" href="../topic64.html" /> 
+    <link rel="next" title="Decide Module" href="decide.html" />
+    <link rel="prev" title="Observe Module" href="observe.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,14 +49,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../topic3.html">Publish/Subscribe Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topic4.html">SDN/NFV communication networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../topic5.html">Autonomous Networks</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Microsoft Azure Testbed</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="https://pinaphd.github.io/testbed/topic6/index.html">Microsoft Azure Testbed</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../topic61.html">Resource Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../topic62.html">VM PoC Testbed Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../topic63.html">Data Plane</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../topic64.html">Control Plane</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Knowledge Plane</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="observe.html">Observe Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="orient.html">Orient Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="https://pinaphd.github.io/testbed/topic6/topic65/index.html">Knowledge Plane</a><ul>
+<li class="toctree-l3 current"><a class="reference internal" href="observe.html">Observe Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Orient Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="decide.html">Decide Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="act.html">Act Module</a></li>
 </ul>
@@ -80,8 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">Topic 6</a></li>
-      <li class="breadcrumb-item active">Knowledge Plane</li>
+           <li class="breadcrumb-item active">Orient Module</li>
   </ul>
   <hr/>
 </div>
@@ -89,23 +88,38 @@
            <div itemprop="articleBody">
              
   <section id="topic-65">
-<h1>Knowledge Plane<a class="headerlink" href="#topic-65" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="observe.html">Observe Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="orient.html">Orient Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="decide.html">Decide Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="act.html">Act Module</a></li>
-</ul>
-</div>
+<h1>Orient Module<a class="headerlink" href="#topic-65" title="Observe Module">¶</a></h1>
+<p>The <strong>Observe</strong> module plays a critical role in interacting with the Open Network Operating System (ONOS) SDN controller to facilitate real-time network monitoring and issue detection. 
+The Observe module collects data on network performance, traffic patterns, and potential failures by tapping into ONOS's telemetry and monitoring features. ONOS, as an SDN controller, has a global view of the network topology, allowing it to track the state of switches, routers, and links in the offshore wind farm cluster.</p>
+
+<p> 
+The Orient module generates a visual representation of the network topology. 
+It takes three parameters: devices, links, and hosts, each represented as Pandas DataFrames. 
+Using NetworkX, a graph is constructed, where devices and hosts are added as nodes, and edges between them represent links. 
+The visualization helps network administrators and engineers understand the structure and connections in the network.
+</p>
+
+<figure style="text-align: center;">
+    <img src="https://pinaphd.github.io/testbed/_static/Images/Orient.png" alt="orient module">
+    <figcaption style="font-style: italic; color:gray; font-size:11px; margin-top: 15px;">Visual representation of the network topology, illustrating device and host connections with node labels and inter-device links.</figcaption>
+</figure>
+
+<p>
+Further, it monitors the traffic conditions by calculating important metrics such as link utilization, throughput, error rates, packet drops, and latency. 
+This helps to keep track of network performance, identify bottlenecks, and optimize the flow of data. 
+The computed metrics are stored in a DataFrame, which can be further analyzed or saved for future reference.
+</p>
+
+
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../topic64.html" class="btn btn-neutral float-left" title="Control Plane" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="observe.html" class="btn btn-neutral float-right" title="Observe Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="observe.html" class="btn btn-neutral float-left" title="Observe Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="decide.html" class="btn btn-neutral float-right" title="Decide Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
